@@ -1,34 +1,154 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Atelier Archive - Additional Styles */
+
+/* Product card hover effect */
+.product-card {
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.product-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  transform: translateY(-4px);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Badge styles */
+.badge-embroidery {
+  background: hsl(24 85% 55% / 0.1);
+  color: hsl(24 85% 55%);
+  border: 1px solid hsl(24 85% 55% / 0.2);
 }
 
-.App-link {
-    color: #61dafb;
+.badge-jacquard {
+  background: hsl(222 47% 11% / 0.1);
+  color: hsl(222 47% 11%);
+  border: 1px solid hsl(222 47% 11% / 0.2);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Sidebar navigation */
+.sidebar-link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+.sidebar-link.active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Form inputs underline style */
+.input-underline {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid hsl(var(--input));
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  transition: border-color 0.2s ease;
+}
+
+.input-underline:focus {
+  border-bottom-color: hsl(var(--primary));
+  box-shadow: none;
+  outline: none;
+}
+
+/* Login hero overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, 
+    hsl(222 47% 11% / 0.7) 0%, 
+    hsl(222 47% 11% / 0.4) 100%
+  );
+}
+
+/* Stats card */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: hsl(var(--accent) / 0.05);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+/* Table row hover */
+.table-row-hover:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+/* Masonry grid for catalog */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Control room grid for dashboard */
+.control-room-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .control-room-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image aspect ratios */
+.aspect-product {
+  aspect-ratio: 3/4;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid hsl(var(--muted));
+  border-top-color: hsl(var(--primary));
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Filter panel */
+.filter-panel {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.6);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+/* SKU badge */
+.sku-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(var(--muted-foreground));
 }
